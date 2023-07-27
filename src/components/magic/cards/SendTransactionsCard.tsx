@@ -9,8 +9,6 @@ import Card from '../../ui/Card'
 import CardHeader from '../../ui/CardHeader'
 import TransactionHistory from '../../ui/TransactionHistory'
 import ErrorText from '../../ui/Error'
-import {Networks} from '../../../utils/networks'
-import {getFaucetUrl} from '../../../utils/faucet'
 import {useMagicContext} from '@/components/magic/MagicProvider'
 
 const SendTransaction = () => {
@@ -23,7 +21,6 @@ const SendTransaction = () => {
 	const [amountError, setAmountError] = useState(false)
 	const publicAddress = localStorage.getItem('user')
 	const network = localStorage.getItem('network')
-	const tokenSymbol = network === Networks.Polygon ? 'MATIC' : 'ETH'
 
 	useEffect(() => {
 		setDisabled(!toAddress || !amount)
@@ -65,9 +62,12 @@ const SendTransaction = () => {
 	return (
 		<Card>
 			<CardHeader id='send-transaction'>Send Transaction</CardHeader>
-			<a href={getFaucetUrl()} target='_blank' rel='noreferrer'>
+			<a
+				href='https://faucet.polygon.technology/'
+				target='_blank'
+				rel='noreferrer'>
 				<FormButton onClick={() => null} disabled={false}>
-					Get Test {tokenSymbol}{' '}
+					Get Test MATIC
 					<Image
 						src={Link}
 						alt='link-icon'
@@ -85,7 +85,7 @@ const SendTransaction = () => {
 			<FormInput
 				value={amount}
 				onChange={(e: any) => setAmount(e.target.value)}
-				placeholder={`Amount (${tokenSymbol})`}
+				placeholder={'Amount (MATIC)'}
 			/>
 			{amountError ? (
 				<ErrorText className='error'>Invalid amount</ErrorText>

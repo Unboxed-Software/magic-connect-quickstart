@@ -5,7 +5,6 @@ import Loading from 'public/loading.svg'
 import CardLabel from '../../ui/CardLabel'
 import Card from '../../ui/Card'
 import CardHeader from '../../ui/CardHeader'
-import {Networks} from '../../../utils/networks'
 import {useMagicContext} from '@/components/magic/MagicProvider'
 
 interface Props {
@@ -21,7 +20,6 @@ const UserInfo = ({setAccount}: Props) => {
 
 	const publicAddress = localStorage.getItem('user')
 	const network = localStorage.getItem('network')
-	const tokenSymbol = network === Networks.Polygon ? 'MATIC' : 'ETH'
 
 	const getBalance = useCallback(async () => {
 		if (publicAddress && web3) {
@@ -103,9 +101,7 @@ const UserInfo = ({setAccount}: Props) => {
 					)
 				}
 			/>
-			<div className='code'>
-				{balance.substring(0, 7)} {tokenSymbol}
-			</div>
+			<div className='code'>{balance.substring(0, 7)} MATIC</div>
 		</Card>
 	)
 }

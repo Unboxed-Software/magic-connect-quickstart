@@ -1,7 +1,6 @@
 import React, {useState, useCallback} from 'react'
 import AppHeader from '../ui/AppHeader'
 import Links from './Links'
-import NetworkDropdown from './NetworkDropdown'
 import ConnectButton from '../ui/ConnectButton'
 import Spacer from '../ui/Spacer'
 import LoginPageBackground from 'public/login.svg'
@@ -38,7 +37,6 @@ const Login = ({setAccount}: Props) => {
 			}}>
 			<AppHeader />
 			<Spacer size={32} />
-			<NetworkDropdown />
 			<Spacer size={20} />
 			<ConnectButton onClick={connect} disabled={disabled} />
 			<Links footer />
