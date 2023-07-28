@@ -75,7 +75,7 @@ const UserInfo = ({setAccount}: Props) => {
 			/>
 			<div className='flex-row'>
 				<div className='green-dot' />
-				<div className='connected'>Connected</div>
+				<div className='connected'>Connected to Polygon (Mumbai)</div>
 			</div>
 			<Divider />
 			<CardLabel
